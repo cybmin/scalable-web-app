@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: scalable-web-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: scalable-web-app
+  template:
+    metadata:
+      labels:
+        app: scalable-web-app
+    spec:
+      containers:
+      - name: scalable-web-app
+        image: cybmin/scalable-web-app:latest
+        ports:
+        - containerPort: 80
